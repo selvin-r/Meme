@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Creator</title>
+    <link rel="stylesheet" href="Meme.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span><i class='bx bxs-cool' style="color: blueviolet;"></i></span> Meme Creator</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="upload-section">
+                    <h2>Add Image</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <label for="imageInput" class="upload-label">
+                            <span class="upload-icon"><i class='bx bxs-folder-open' style="color: blueviolet;"></i></span>
+                            <span>Choose Image</span>
+                        </label>
+                    </div>
+
+
+
+                    <div class="url-input">
+                        <input type="text" id="imageUrl" placeholder="Or paste image URL">
+                        <button id="loadUrlBtn">Load</button>
+                    </div>
+                </div>
+
+                <div class="text-controls">
+                    <h2>Text Controls</h2>
+                    
+                    <div class="control-group">
+                        <label for="topText">Top Text</label>
+                        <input type="text" id="topText" placeholder="Enter top text">
+                        <div class="text-options">
+                            <input type="color" id="topTextColor" value="#ffffff">
+                            <input type="number" id="topTextSize" value="40" min="20" max="100">
+                            <select id="topTextFont">
+                                <option value="Arial">Arial</option>
+                                <option value="Impact" selected>Impact</option>
+                                <option value="Comic Sans MS">Comic Sans</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Times New Roman">Times</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="bottomText">Bottom Text</label>
+                        <input type="text" id="bottomText" placeholder="Enter bottom text">
+                        <div class="text-options">
+                            <input type="color" id="bottomTextColor" value="#ffffff">
+                            <input type="number" id="bottomTextSize" value="40" min="20" max="100">
+                            <select id="bottomTextFont">
+                                <option value="Arial">Arial</option>
+                                <option value="Impact" selected>Impact</option>
+                                <option value="Comic Sans MS">Comic Sans</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Times New Roman">Times</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-images">
+                    <h2>Quick Templates</h2>
+                    <div class="preset-grid">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSaD7Ux1PIPHTnHH0K0KlVV__5Bt53AfmU7A&s" alt="Preset 1" class="preset-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM7uP0zLmkLhBqerYc2qnZK19BcmmE6GcZLQ&s" alt="Preset 2" class="preset-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmzn8O3aHATlK0NLEgF-4L93-45k75CUO-9w&s" alt="Preset 3" class="preset-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZZQawKZujhj8gAGlDPF9FJPFKLCNK0drjYw&s" alt="Preset 4" class="preset-img">
+                    </div>
+                </div>
+
+                
+                <div class="action-buttons">
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    <button id="downloadBtn" class="btn btn-primary">Download Meme</button>
+                </div>
+            </div>
+
+            <div class="canvas-section">
+                <div class="canvas-container">
+                    <canvas id="memeCanvas"></canvas>
+                    <div class="canvas-placeholder" id="canvasPlaceholder">
+                        <span class="placeholder-icon"><i class='bx bxs-palette' style="color: blueviolet;"></i></span>
+                        <p>Upload an image to get started</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <script src="Meme.js"></script>
+</body>
+</html>
+

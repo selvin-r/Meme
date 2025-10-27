@@ -1,0 +1,86 @@
+<!-- 6. Column Fixed in Table -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Column Table Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 800px;
+      overflow-x: auto; /* enables horizontal scroll */
+      border: 2px solid #ccc;
+      border-radius: 6px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 1000px; /* make table wider than container */
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+      background: #f9f9f9;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: white;
+      position: sticky; /* this fixes header */
+      top: 0;
+      z-index: 2;
+    }
+
+    /* Fixed First Column */
+    td:first-child,
+    th:first-child {
+      position: sticky;
+      left: 0;
+      background: #3498db;
+      color: white;
+      z-index: 3; /* stays above other cells */
+    }
+  </style>
+</head>
+<body>
+  <h2>Fixed Column Table Example 💙</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Role</th>
+          <th>Salary</th>
+          <th>City</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Joining Date</th>
+          <th>Status</th>
+          <th>Performance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Darling</td><td>Frontend</td><td>Intern</td><td>25k</td><td>Chennai</td><td>darling@zoho.com</td><td>9999999999</td><td>10/09/2025</td><td>Active</td><td>Excellent</td></tr>
+        <tr><td>Priya</td><td>Backend</td><td>Developer</td><td>40k</td><td>Coimbatore</td><td>priya@zoho.com</td><td>8888888888</td><td>12/05/2024</td><td>Active</td><td>Good</td></tr>
+        <tr><td>Arun</td><td>Design</td><td>UI Designer</td><td>30k</td><td>Salem</td><td>arun@zoho.com</td><td>7777777777</td><td>01/02/2023</td><td>Active</td><td>Average</td></tr>
+        <tr><td>Meena</td><td>QA</td><td>Tester</td><td>35k</td><td>Trichy</td><td>meena@zoho.com</td><td>6666666666</td><td>04/04/2024</td><td>Active</td><td>Good</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

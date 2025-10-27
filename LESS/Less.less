@@ -1,0 +1,38 @@
+// ===== Variables =====
+@primary-color: #3498db;
+@hover-color: darken(@primary-color, 10%);
+@text-color: white;
+@card-bg: #f8f9fa;
+
+// ===== Nesting =====
+.card {
+  background: @card-bg;
+  padding: 30px;
+  text-align: center;
+  width: 300px;
+  margin: 80px auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+  h2 {
+    color: @primary-color;
+  }
+
+  p {
+    color: #555;
+  }
+
+  button {
+    background: @primary-color;
+    color: @text-color;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: @hover-color;
+    }
+  }
+}

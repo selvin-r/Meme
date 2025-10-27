@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button vs Input Button 💙</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #0078d7;
+    }
+
+    button, input[type="button"] {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover, input[type="button"]:hover {
+      background-color: #005fa3;
+    }
+
+    .with-icon img {
+      width: 16px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🔘 Button vs Input Type="button"</h2>
+
+  <!-- Normal button -->
+  <button onclick="alert('Button Clicked 💙')">Click Me</button>
+
+  <!-- Button with icon -->
+  <button class="with-icon" onclick="alert('Save Button Clicked 💾')">
+    <img src="https://cdn-icons-png.flaticon.com/512/60/60525.png">
+    Save Changes
+  </button>
+
+  <!-- Input button -->
+  <input type="button" value="Click Me Too" onclick="alert('Input Button Clicked 💚')">
+
+  <form onsubmit="alert('Form Submitted!'); return false;">
+  <button>Submit Form</button>
+  <input type="button" value="Click Me (No Submit)">
+</form>
+
+
+</body>
+</html>
+

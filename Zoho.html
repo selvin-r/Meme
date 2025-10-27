@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagination Example</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f9fafb;
+      padding: 40px;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: white;
+      margin: 5px auto;
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin: 2px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .pagination button:hover {
+      background: #2d83c1;
+    }
+    .pagination button.active {
+      background: #2ecc71;
+    }
+    .pagination button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pagination Example 💙</h2>
+  <ul id="itemList"></ul>
+
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    // ===== Sample Data (You can imagine this comes from a database or API) =====
+    const items = [];
+    for (let i = 1; i <= 53; i++) {
+      items.push(`Item ${i}`);
+    }
+
+    // ===== Pagination Variables =====
+    const itemsPerPage = 10;
+    let currentPage = 1;
+
+    // ===== Function to Display Items =====
+    function displayItems(page) {
+      const start = (page - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const paginatedItems = items.slice(start, end);
+
+      const list = document.getElementById("itemList");
+      list.innerHTML = "";
+
+      paginatedItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+
+    // ===== Function to Display Pagination Buttons =====
+    function setupPagination() {
+      const pageCount = Math.ceil(items.length / itemsPerPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      // Previous button
+      const prevBtn = document.createElement("button");
+      prevBtn.textContent = "Previous";
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => {
+        if (currentPage > 1) {
+          currentPage--;
+          displayItems(currentPage);
+          setupPagination();
+        }
+      };
+      pagination.appendChild(prevBtn);
+
+      // Page number buttons
+      for (let i = 1; i <= pageCount; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        if (i === currentPage) btn.classList.add("active");
+        btn.onclick = () => {
+          currentPage = i;
+          displayItems(currentPage);
+          setupPagination();
+        };
+        pagination.appendChild(btn);
+      }
+
+      // Next button
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "Next";
+      nextBtn.disabled = currentPage === pageCount;
+      nextBtn.onclick = () => {
+        if (currentPage < pageCount) {
+          currentPage++;
+          displayItems(currentPage);
+          setupPagination();
+        }
+      };
+      pagination.appendChild(nextBtn);
+    }
+
+    // ===== Initialize =====
+    displayItems(currentPage);
+    setupPagination();
+  </script>
+</body>
+</html>

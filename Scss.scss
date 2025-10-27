@@ -1,0 +1,56 @@
+
+$primary-color: #63db34;
+$hover-color: darken($primary-color, 10%);
+$text-color: white;
+$card-bg: #f8f9fa;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card {
+  background: $card-bg;
+  width: 300px;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+
+  button {
+    @include flex-center;
+    background: $primary-color;
+    color: $text-color;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: $hover-color;
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    background: lighten($card-bg, 5%);
+  }
+}

@@ -1,0 +1,39 @@
+.card {
+  background: #f8f9fa;
+  width: 300px;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.card h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+.card p {
+  color: #555;
+  margin-bottom: 20px;
+}
+.card button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #63db34;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.card button:hover {
+  background: rgb(76.4016736402, 186.8619246862, 33.1380753138);
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    background: white;
+  }
+}/*# sourceMappingURL=Scss.css.map */

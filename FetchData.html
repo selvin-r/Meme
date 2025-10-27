@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch Request Headers Example 💙</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f8f9fa;
+      padding: 30px;
+    }
+    h2 {
+      color: #0077cc;
+    }
+    pre {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🌐 Request Header & URL Example</h2>
+
+  <p>This example uses the <b>Fetch API</b> to call an online API and show the response below.</p>
+
+  <button id="loadData">Fetch Data</button>
+
+  <h3>📨 Request URL:</h3>
+  <pre id="urlBox"></pre>
+
+  <h3>🧾 Request Headers:</h3>
+  <pre id="headersBox"></pre>
+
+  <h3>📦 API Response:</h3>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById("loadData").addEventListener("click", () => {
+      // 1️⃣ Define API URL
+      const apiUrl = "https://jsonplaceholder.typicode.com/users"; // public dummy API
+
+      // 2️⃣ Show URL in browser
+      document.getElementById("urlBox").textContent = apiUrl;
+
+      // 3️⃣ Create custom headers
+      const headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": "Bearer sampleToken123"
+      };
+
+      // Show headers
+      document.getElementById("headersBox").textContent = JSON.stringify(headers, null, 2);
+
+      // 4️⃣ Fetch data from API
+      fetch(apiUrl, { method: "GET", headers })
+        .then(response => response.json())
+        .then(data => {
+          // 5️⃣ Display data on page
+          document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          document.getElementById("output").textContent = "Error: " + error;
+        });
+    });
+  </script>
+
+</body>
+</html>

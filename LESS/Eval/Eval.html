@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe innerHTML with DOMPurify</title>
+
+  <!-- Step 1: include DOMPurify from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f8f9fa;
+      padding: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+    .card h2 { color: #3498db; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Safe innerHTML Example 💙</h2>
+    <p>Enter any HTML below (like <code>&lt;b&gt;bold&lt;/b&gt;</code> or malicious script):</p>
+    <textarea id="userInput" rows="3" style="width:100%;"></textarea><br><br>
+    <button id="insertBtn">Insert Safely</button>
+
+    <h3>Output:</h3>
+    <div id="output" style="border:1px solid #ccc; padding:10px;"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('insertBtn');
+    const input = document.getElementById('userInput');
+    const output = document.getElementById('output');
+
+    btn.addEventListener('click', () => {
+      const dirty = input.value;
+
+      // Step 2: Clean user HTML using DOMPurify
+      const cleanHTML = DOMPurify.sanitize(dirty);
+
+      // Step 3: Safe to insert
+      output.innerHTML = cleanHTML;
+    });
+  </script>
+</body>
+</html>
