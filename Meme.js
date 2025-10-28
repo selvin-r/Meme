@@ -162,4 +162,3 @@ presetImages.forEach((img, index) => {
 
 // Initialize canvas placeholder
 canvasPlaceholder.classList.add('active');
-

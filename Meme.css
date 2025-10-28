@@ -88,6 +88,12 @@ h2 {
     transform: translateY(-2px);
 }
 
+.upload-area.dragover .upload-label {
+    background: #eef3ff;
+    border-color: #5b6eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
 
 .url-input {
     display: flex;

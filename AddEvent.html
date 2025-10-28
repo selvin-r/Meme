@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addEventListener Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #myBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #myBtn:hover {
+      background-color: #0056b3;
+    }
+
+    #box {
+      width: 150px;
+      height: 150px;
+      background-color: lightcoral;
+      margin: 30px auto;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript addEventListener() Demo</h1>
+
+  <!-- A button -->
+  <button id="myBtn">Click Me</button>
+
+  <!-- A colored box -->
+  <div id="box"></div>
+
+  <script>
+    // Select the elements
+    const button = document.getElementById("myBtn");
+    const box = document.getElementById("box");
+
+    // 1️⃣ Click Event
+    button.addEventListener("click", function() {
+      alert("Button clicked!");
+    });
+
+    // 2️⃣ Mouseover Event
+    box.addEventListener("mouseover", function() {
+      box.style.backgroundColor = "lightgreen";
+    });
+
+    // 3️⃣ Mouseout Event
+    box.addEventListener("mouseout", function() {
+      box.style.backgroundColor = "lightcoral";
+    });
+
+    // 4️⃣ Named Function Example
+    function greetUser() {
+      console.log("Hello Darling 💖 from the console!");
+    }
+
+    button.addEventListener("dblclick", greetUser);
+  </script>
+
+</body>
+</html>
