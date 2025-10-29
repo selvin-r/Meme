@@ -15,10 +15,13 @@ const clearBtn = document.getElementById('clearBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const canvasPlaceholder = document.getElementById('canvasPlaceholder');
 const presetImages = document.querySelectorAll('.preset-img');
+ const ratingElement = document.getElementById("ratingValue");
 
 let currentImage = null;
 
-// Handle file upload
+
+
+
 imageInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -30,7 +33,7 @@ imageInput.addEventListener('change', (e) => {
     }
 });
 
-// Handle URL load
+
 loadUrlBtn.addEventListener('text-input', () => {
     const url = imageUrl.value.trim();
     if (url) {
@@ -45,7 +48,6 @@ loadUrlBtn.addEventListener('click', () => {
     }
 });
 
-// Handle Enter key in URL input
 imageUrl.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         const url = imageUrl.value.trim();
@@ -55,7 +57,7 @@ imageUrl.addEventListener('keypress', (e) => {
     }
 });
 
-// Load image function
+
 function loadImage(src) {
     const img = new Image();
     img.crossOrigin = 'anonymous';
@@ -70,32 +72,33 @@ function loadImage(src) {
     img.src = src;
 }
 
-// Update canvas with current settings
+
 function updateCanvas() {
     if (!currentImage) {
         canvasPlaceholder.classList.add('active');
         return;
     }
 
-    // Set canvas size
+
     canvas.width = currentImage.width;
     canvas.height = currentImage.height;
 
-    // Draw image
+    
     ctx.drawImage(currentImage, 0, 0);
 
-    // Draw top text
     if (topText.value) {
         drawText(topText.value, 'top');
     }
 
-    // Draw bottom text
+  
     if (bottomText.value) {
         drawText(bottomText.value, 'bottom');
     }
 }
 
-// Draw text on canvas
+
+
+
 function drawText(text, position) {
     const fontSize = position === 'top' ? parseInt(topTextSize.value) : parseInt(bottomTextSize.value);
     const fontFamily = position === 'top' ? topTextFont.value : bottomTextFont.value;
@@ -111,12 +114,12 @@ function drawText(text, position) {
     const x = canvas.width / 2;
     const y = position === 'top' ? 20 : canvas.height - 20;
 
-    // Draw text with stroke
+
     ctx.strokeText(text, x, y);
     ctx.fillText(text, x, y);
 }
 
-// Add event listeners for text inputs
+
 topText.addEventListener('input', updateCanvas);
 bottomText.addEventListener('input', updateCanvas);
 topTextColor.addEventListener('input', updateCanvas);
@@ -126,14 +129,14 @@ bottomTextSize.addEventListener('input', updateCanvas);
 topTextFont.addEventListener('change', updateCanvas);
 bottomTextFont.addEventListener('change', updateCanvas);
 
-// Clear button
+
 clearBtn.addEventListener('click', () => {
     topText.value = '';
     bottomText.value = '';
     updateCanvas();
 });
 
-// Download button
+
 downloadBtn.addEventListener('click', () => {
     if (!currentImage) {
         alert('Please upload an image first!');
@@ -146,10 +149,9 @@ downloadBtn.addEventListener('click', () => {
     link.click();
 });
 
-// Preset images (placeholder functionality)
 presetImages.forEach((img, index) => {
     img.addEventListener('click', () => {
-        // Replace with actual image URLs for preset templates
+     
         const presetUrls = [
             'https://via.placeholder.com/800x600/333333/ffffff?text=Template+1',
             'https://via.placeholder.com/800x600/333333/ffffff?text=Template+2',
@@ -160,5 +162,16 @@ presetImages.forEach((img, index) => {
     });
 });
 
-// Initialize canvas placeholder
+
+   ratingElement.parentElement.addEventListener("click", () => {
+      let rating = parseFloat(ratingElement.innerText);
+      if (rating < 5) {
+        rating += 0.1; 
+        rating = Math.min(rating, 5.0); 
+        ratingElement.innerText = rating.toFixed(1);
+      } else {
+        alert("🌟 Maximum rating reached (5.0)");
+      }
+    });
+
 canvasPlaceholder.classList.add('active');
