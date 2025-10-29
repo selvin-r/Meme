@@ -47,6 +47,7 @@ header {
     height: 100%;
     overflow: hidden;
     color: #cf2e66;
+    
     border-right: 8px solid transparent;
     transition: 1s ease-in-out;
 
@@ -68,6 +69,7 @@ header {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); 
+    
 } 
 
 
@@ -79,7 +81,7 @@ header {
 
 h2 {
     font-size: 1.3rem;
-    color: #333;
+    color: #cf2e66;
     margin-bottom: 15px;
     padding-bottom: 10px;
     border-bottom: 2px solid #cf2e66;
