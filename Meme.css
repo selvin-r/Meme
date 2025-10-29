@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* background: linear-gradient(135deg, #c3c7d8 0%, #FFBBE1 100%); */
+    background-color: #cdb4db;
     min-height: 100vh;
     padding: 20px;
 }
@@ -20,19 +21,38 @@ body {
 
 header {
     text-align: center;
-    color: white;
+    /* color: white; */
     margin-bottom: 30px;
 }
+.title{
+     color: transparent;
+    -webkit-text-stroke: 3px #cf2e66;
+    position: relative;
+     font-size: 5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-/* header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-} */
+.title::before{
+    content: "Meme Creator";
+    position: absolute;
+     top: 0;
+    left: 0; 
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    color: #cf2e66;
+    border-right: 8px solid transparent;
+    transition: 1s ease-in-out;
+
+
+  }
+  .title:hover::before{
+    width: 100%;
+     /* border-right: 8px solid transparent;  */
+    filter: drop-shadow(0 0 25px #cf2e66);
+  }
+
+
 
 .main-content {
     display: flex;
@@ -56,7 +76,7 @@ h2 {
     color: #333;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 2px solid #cf2e66;
 }
 
 
@@ -75,7 +95,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     padding: 30px;
-    border: 3px dashed #667eea;
+    border: 3px dashed #cf2e66 ;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -84,13 +104,13 @@ h2 {
 
 .upload-label:hover {
     background: #f0f4ff;
-    border-color: #764ba2;
+    border-color: #cf2e66 ;
     transform: translateY(-2px);
 }
 
 .upload-area.dragover .upload-label {
     background: #eef3ff;
-    border-color: #5b6eea;
+    border-color: #cf2e66;
     box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
 }
 
@@ -110,12 +130,12 @@ h2 {
 }
 .url-input input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color:#cf2e66 ;
 }
 
 .url-input button {
     padding: 12px 20px;
-    background: #667eea;
+     background: linear-gradient(135deg, #c3c7d8 0%, #cf2e66 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -126,7 +146,7 @@ h2 {
 
 
 .url-input button:hover {
-    background: #764ba2;
+    background:#dbc5cd ;
 }
 
 .text-controls {
@@ -159,7 +179,7 @@ h2 {
 
 .control-group input[type="text"]:focus {
     outline: none;
-    border-color: #667eea;
+    border-color:#cf2e66 ;
 }
 
 
@@ -219,7 +239,7 @@ h2 {
 
 .preset-img:hover {
     transform: scale(1.05);
-    border-color: #667eea;
+    border-color: #cf2e66 ;
 }
 
 
@@ -240,7 +260,7 @@ h2 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #c3c7d8 0%, #cf2e66 100%);
     color: white;
 }
 
